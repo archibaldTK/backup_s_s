@@ -1,4 +1,6 @@
-#include "sim_shell.h"/**
+#include "sim_shell.h"
+
+/**
  * _which - function to find directories
  * code by ArchibaldTK & TsistiN
  * @command: command from user
@@ -9,7 +11,9 @@
 char *_which(char *command, char *fullpath, char *path)
 {
 	unsigned int command_length, path_length, original_path_length;
-	char *path_copy, *token;	command_length = _strlen(command);
+	char *path_copy, *token;
+
+	command_length = _strlen(command);
 	original_path_length = _strlen(path);
 	path_copy = malloc(sizeof(char) * original_path_length + 1);
 	if (path_copy == NULL)
@@ -47,7 +51,3 @@ char *_which(char *command, char *fullpath, char *path)
 	free(path_copy);
 	return (fullpath);
 }
-
-
-Make a note of something
-

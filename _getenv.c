@@ -1,4 +1,6 @@
-#include "sim_shell.h"/**
+#include "sim_shell.h"
+
+/**
  * _getenv - function that pulls an environment
  * code by ArchibaldTK & TsistiN
  * @name: env to be aquired
@@ -9,11 +11,15 @@ char *_getenv(const char *name)
 	char **environ_copy;
 	char *variable, *value, *path;
 	int compare;
-	unsigned int path_length, environ_length, length, x;	environ_length = 0;
+	unsigned int path_length, environ_length, length, x;
+
+	environ_length = 0;
 	while (environ[environ_length] != NULL)
 		environ_length++;
 	environ_copy = NULL;
-	environ_copy = copy_env(environ_copy, environ_length);	length = _strlen((char *)name);
+	environ_copy = copy_env(environ_copy, environ_length);
+
+	length = _strlen((char *)name);
 	x = 0;
 	while (environ_copy[x] != NULL)
 	{
@@ -42,7 +48,9 @@ char *_getenv(const char *name)
 		x++;
 	}
 	return (NULL);
-}/**
+}
+
+/**
  * copy_env - function to create a copy of env
  * code by ArchibaldTK & TsistiN
  * @environ_copy: env copy
@@ -53,16 +61,22 @@ char **copy_env(char **environ_copy, unsigned int environ_length)
 {
 	char *variable;
 	unsigned int variable_length;
-	unsigned int x;	environ_copy = malloc(sizeof(char **) * (environ_length));
+	unsigned int x;
+
+	environ_copy = malloc(sizeof(char **) * (environ_length));
 	if (environ_copy == NULL)
 	{
 		errors(3);
 		return (NULL);
-	}	x = 0;
+	}
+
+	x = 0;
 	while (x < environ_length)
 	{
 		variable = environ[x];
-		variable_length = _strlen(variable);		environ_copy[x] = malloc(sizeof(char) * variable_length + 1);
+		variable_length = _strlen(variable);
+
+		environ_copy[x] = malloc(sizeof(char) * variable_length + 1);
 		if (environ_copy[x] == NULL)
 		{
 			errors(3);
@@ -70,5 +84,7 @@ char **copy_env(char **environ_copy, unsigned int environ_length)
 		}
 		_strcpy(environ_copy[x], environ[x]);
 		x++;
-	}	return (environ_copy);
+	}
+
+	return (environ_copy);
 }

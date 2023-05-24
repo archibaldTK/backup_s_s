@@ -1,4 +1,6 @@
-#include "sim_shell.h"/**
+#include "sim_shell.h"
+
+/**
  * child - function that excutes new processes
  * code by ArchibaldTK & TsistiN
  * @fullpath: command path
@@ -10,7 +12,9 @@ int child(char *fullpath, char **tokens)
 	pid_t child_pid;
 	int status;
 	int execve_status;
-	char **envp = environ;	child_pid = fork();
+	char **envp = environ;
+
+	child_pid = fork();
 	if (child_pid == -1)
 	{
 		errors(1);
@@ -23,5 +27,7 @@ int child(char *fullpath, char **tokens)
 			return (-1);
 	}
 	else
-		wait(&status);	return (0);
+		wait(&status);
+
+	return (0);
 }
