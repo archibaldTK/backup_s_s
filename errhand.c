@@ -30,5 +30,3 @@ void errors(int error)
 		return;
 	}
 }
-Footer
-

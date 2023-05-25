@@ -23,5 +23,3 @@ char *_getline(FILE *input)
 
 	return (line);
 }
-Footer
-

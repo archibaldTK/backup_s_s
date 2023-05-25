@@ -53,5 +53,3 @@ int shell_num_builtins(built_s builtin[])
 
 	return (x);
 }
-Footer
-

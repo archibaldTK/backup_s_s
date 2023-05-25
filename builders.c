@@ -23,7 +23,7 @@ int shell_env(void)
 	unsigned int x;
 
 	x = 0;
-	while (environ[i] != NULL)
+	while (environ[x] != NULL)
 	{
 		write(STDOUT_FILENO, environ[x], _strlen(environ[x]));
 		write(STDOUT_FILENO, "\n", 1);
@@ -31,5 +31,3 @@ int shell_env(void)
 	}
 	return (0);
 }
-Footer
-

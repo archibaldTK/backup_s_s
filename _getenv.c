@@ -23,7 +23,7 @@ char *_getenv(const char *name)
 	x = 0;
 	while (environ_copy[x] != NULL)
 	{
-		variable = environ_copy[i];
+		variable = environ_copy[x];
 		compare = _strncmp((char *)name, variable, length);
 		if (compare == 1)
 		{
